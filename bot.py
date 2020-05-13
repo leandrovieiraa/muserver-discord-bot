@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 TOKEN = ''
 
 # Server configurations
-DB_HOST = ''
+DB_HOST = '
 DB_PORT = ''
 DB_USER = ''
 DB_PASS = ''
@@ -23,7 +23,7 @@ bot = commands.Bot(command_prefix='!')
 
 def getTop50Resets(cursor=''):
     top50 = []
-    query = 'SELECT TOP 50 Name, cLevel, Resets FROM Character WHERE CtlCode = 0 ORDER BY Resets, cLevel DESC'
+    query = 'SELECT TOP 50 Name, cLevel, Resets FROM Character WHERE CtlCode = 0 ORDER BY Resets DESC, cLevel DESC'
     cursor.execute(query)
     rows = cursor.fetchall()
     current_position = 1
