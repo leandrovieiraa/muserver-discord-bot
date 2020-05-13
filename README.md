@@ -27,29 +27,19 @@ Thanks for use my code. :D
 
 In this bot app I just create two functions (Top 50 Resets, Top 50 PKs), but you can customize with other query's or mechanics like registration, other top rankings, ban accounts, give itens etc...
 
-## Install
+## Install and Run
 
 ```bash
 pip install -r requirements.txt
-```
-
-## Run
-
-```bash
 python bot.py
 ```
 
 ## Commands
 
-**Top 50 players**
+**Top 50 players** and **Top 50 Pks**
 
 ```bash
 !ranking
-```
-
-**Top 50 PKs**
-
-```bash
 !pk
 ```
 
