@@ -6,14 +6,14 @@ from discord.ext import commands
 from dotenv import load_dotenv
 
 # Discord Token
-TOKEN = 'YOUR_DISCORD_APP_TOKEN'
+TOKEN = ''
 
 # Server configurations
-DB_HOST = 'xxxx'
-DB_PORT = 'xxxx'
-DB_USER = 'xxxx'
-DB_PASS = 'xxxx'
-DB_NAME = 'MuOnline'
+DB_HOST = ''
+DB_PORT = ''
+DB_USER = ''
+DB_PASS = ''
+DB_NAME = ''
 
 cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER='+DB_HOST+','+DB_PORT+';DATABASE='+DB_NAME+';UID='+DB_USER+';PWD='+ DB_PASS)
 cursor = cnxn.cursor()
@@ -58,16 +58,18 @@ def getTop50Pks(cursor):
 async def top50_resets(ctx):
     top50 = getTop50Resets(cursor)
     message = ''
-    for character in top50:
-        message += f"#{character['position']} Name: {character['name']} - Level: {character['level']} - Resets: {character['resets']}\n"
-    await ctx.send(message)
+    if top50:
+        for character in top50:
+            message += f"#{character['position']} Name: {character['name']} - Level: {character['level']} - Resets: {character['resets']}\n"
+        await ctx.send(message)
 
 @bot.command(name='pk')
 async def top50_resets(ctx):
     top50 = getTop50Pks(cursor)
     message = ''
-    for character in top50:
-        message += f"#{character['position']} Name: {character['name']} - Pk Count: {character['pkcount']} - Pk Level: {character['pklevel']} - Pk Time: {character['pktime']}\n"
-    await ctx.send(message)
+    if top50:
+        for character in top50:
+            message += f"#{character['position']} Name: {character['name']} - Pk Count: {character['pkcount']} - Pk Level: {character['pklevel']} - Pk Time: {character['pktime']}\n"
+        await ctx.send(message)
 
 bot.run(TOKEN)

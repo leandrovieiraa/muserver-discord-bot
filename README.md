@@ -29,8 +29,28 @@ In this bot app I just create two functions (Top 50 Resets, Top 50 PKs), but you
 
 ## Install and Run
 
+Install all dependencies
+
 ```bash
 pip install -r requirements.txt
+```
+
+Change your SQL Server config and your discord token
+
+```python
+# Discord Token
+TOKEN = ''
+
+# Server configurations
+DB_HOST = ''
+DB_PORT = ''
+DB_USER = ''
+DB_PASS = ''
+```
+
+Run
+
+```
 python bot.py
 ```
 
